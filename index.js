@@ -77,4 +77,5 @@ app.get('/invoices', (req, res) => {
 
 
 // Initialise HTTP Server
-app.listen(3000, () => console.log(`Server started on port ${port}`));
+const port = 3000;
+app.listen(port, () => console.log(`Server started on port ${port}`));
