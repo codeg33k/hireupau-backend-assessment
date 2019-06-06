@@ -1,6 +1,6 @@
 const express = require('express');
 const moment = require('moment');
-const bookings = require('./data/bookings');
+const bookings = require('./data/bookings.json');
 
 const app = express();
 
@@ -40,9 +40,9 @@ app.get('/bookings', (req, res) => {
   }
 });
 
-app.get('/bookings/:id', (req, res) => {
+app.get('/bookings/:id', (req, res, next) => {
   try {
-    res.json(bookings.find(booking => String(booking.id) === id));
+    res.json(bookings.find(booking => String(booking.id) === req.params.id));
   } catch (err) {
     res.status(500).send(err);
   }
